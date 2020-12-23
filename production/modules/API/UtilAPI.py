@@ -27,6 +27,15 @@ class UtilAPI:
         self.Param['twitter']['twitter_access_token_secret'] = os.environ['twitter_access_token_secret']
         
         #database information
+        self.Param['sql']['database_name'] = 'haiku_db'
         self.Param['sql']['password'] = os.environ['mysql_password']
+        
+        #database type conversion (pyspark --> mysql)
+        self.Param['sql']['type_conversion'] = {'int' : 'BIGINT',
+                                                'bigint': 'BIGINT',
+                                                'string':'VARCHAR(100)',
+                                                'double': 'DOUBLE',
+                                                'float': 'DOUBLE',
+                                                'boolean':'BOOLEAN',}
         
         #END UtilAPI
