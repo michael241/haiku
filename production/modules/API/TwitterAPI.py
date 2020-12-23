@@ -15,13 +15,13 @@ class TwitterAPI:
     def __init__(self):
         
         #initalize paramters
-        ua = UtilAPI()
+        Param = UtilAPI().Param
     
         #setup authorization
-        auth = tw.OAuthHandler(ua.Param['twitter']['twitter_consumer_key'],ua.Param['twitter']['twitter_consumer_secret_key'] )
-        auth.set_access_token(ua.Param['twitter']['twitter_access_token'],ua.Param['twitter']['twitter_access_token_secret'])
+        auth = tw.OAuthHandler(Param['twitter']['twitter_consumer_key'],Param['twitter']['twitter_consumer_secret_key'] )
+        auth.set_access_token(Param['twitter']['twitter_access_token'],Param['twitter']['twitter_access_token_secret'])
 
         #make API connection
-        self.TA = tw.API(auth,wait_on_rate_limit=True)
+        self.API = tw.API(auth,wait_on_rate_limit=True)
         
         # END TwitterAPI
